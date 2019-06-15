@@ -25,3 +25,67 @@ func TestBubbleSorting(t *testing.T) {
 		}
 	}
 }
+
+func TestInsertsort(t *testing.T) {
+	for i, _ := range test {
+		array := test[i]
+		Insertsort(array[:])
+		if array != res[i] {
+			t.Errorf("insert Sorfting fail res: %v", array)
+		} else {
+
+		}
+	}
+}
+
+func TestSelectsort(t *testing.T) {
+	for i, _ := range test {
+		t.Logf(" src array:%v", test[i])
+		array := test[i]
+		Selectsort(array[:])
+		if array != res[i] {
+			t.Errorf("select Sorfting fail res: %v", array)
+		} else {
+			t.Logf(" res array:%v", array)
+		}
+	}
+}
+
+func TestQuicksort(t *testing.T) {
+	for i, _ := range test {
+		t.Logf(" src array:%v", test[i])
+		array := test[i]
+		Selectsort(array[:])
+		if array != res[i] {
+			t.Errorf("quick Sorfting fail res: %v", array)
+		} else {
+			t.Logf(" res array:%v", array)
+		}
+	}
+}
+
+func TestMergesort(t *testing.T) {
+	for i, _ := range test {
+		t.Logf(" src array:%v", test[i])
+		array := test[i]
+		Mergesort(array[:])
+		if array != res[i] {
+			t.Errorf("Mergesort Sorfting fail res: %v", array)
+		} else {
+			t.Logf(" res array:%v", array)
+		}
+	}
+}
+
+func TestStacksort(t *testing.T) {
+	for i, _ := range test {
+		t.Logf(" src array:%v", test[i])
+		array := test[i]
+		Stacksort(array[:])
+		if array != res[i] {
+			t.Errorf("Stacksort Sorfting fail res: %v", array)
+		} else {
+			t.Logf(" res array:%v", array)
+		}
+	}
+}
