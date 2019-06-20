@@ -25,3 +25,20 @@ func TestVariantWord(t *testing.T) {
 		t.Errorf("VaroamtWprd exect true. str %s %s", str12, str22)
 	}
 }
+
+func TestSubNumberSum(t *testing.T) {
+	exampleArray := []struct {
+		Val string
+		Res int
+	}{
+		{"A1CD2E33", 36}, {"A-1B--2C-D6E", 7},
+	}
+
+	for _, v := range exampleArray {
+		r := SubNumberSum(v.Val)
+		if r != v.Res {
+			t.Errorf(" subnumbersum fail, example %s expect %d but return %d.", v.Val, v.Res, r)
+		}
+	}
+
+}
