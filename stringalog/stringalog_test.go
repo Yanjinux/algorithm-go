@@ -42,3 +42,20 @@ func TestSubNumberSum(t *testing.T) {
 	}
 
 }
+
+func TestKmp(t *testing.T) {
+	exampleArray := []struct {
+		Val string
+		Sub string
+		Res int
+	}{
+		{"123456789", "789", 6}, {"acbc", "bc", 2}, {"acbc", "bcc", -1},
+	}
+
+	for i, _ := range exampleArray {
+		r := Kmp(exampleArray[i].Val, exampleArray[i].Sub)
+		if r != exampleArray[i].Res {
+			t.Errorf("Kmp  src %s sub %s expect %d bug return %d.", exampleArray[i].Val, exampleArray[i].Sub, exampleArray[i].Res, r)
+		}
+	}
+}

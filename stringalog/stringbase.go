@@ -78,3 +78,68 @@ func SubNumberSum(s string) int {
 
 	return sum
 }
+
+/* 初始化 kmp的next数组 */
+func initNextArray(s string) []int {
+	if len(s) == 0 {
+		return []int{}
+	}
+
+	if len(s) == 1 {
+		return []int{-1}
+	}
+
+	array := make([]int, len(s))
+	array[0] = -1
+	array[1] = 0
+	cn := 0
+	pos := 2
+	for pos < len(s) {
+		if s[pos-1] == s[cn] {
+			cn = cn + 1
+			array[pos] = cn
+			pos = pos + 1
+		} else if cn > 0 {
+			cn = array[cn]
+		} else {
+			array[pos] = 0
+			pos = pos + 1
+		}
+	}
+	return array
+}
+
+/*
+ kmp 子串匹配算法
+ 如果匹配则返回index 否则 -1
+*/
+func Kmp(src string, sub string) (index int) {
+	subl := len(sub)
+	srcl := len(src)
+	index = -1
+	if srcl == 0 || subl == 0 || subl > srcl {
+		return
+	}
+
+	nextArray := initNextArray(sub)
+	i := 0
+	m := 0
+	for i < srcl && m < subl {
+		if src[i] == sub[m] {
+			i++
+			m++
+		} else {
+			if nextArray[m] == -1 {
+				i++
+			} else {
+				m = nextArray[m]
+			}
+		}
+	}
+
+	if m == subl {
+		index = i - subl
+	}
+
+	return
+}
