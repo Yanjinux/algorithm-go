@@ -143,3 +143,27 @@ func Kmp(src string, sub string) (index int) {
 
 	return
 }
+
+/*
+	给定一个字符类型的数组， 判断chas中是否所有的字符都只出现过一次
+	分别要求：
+	1 时间复杂度ON
+	2 空间复杂度O1的情况下实现。
+*/
+func CharUniq(s string) bool {
+	m := make(map[byte]int)
+	for i, _ := range s {
+		m[s[i]] = 0
+	}
+
+	if len(m) != len(s) {
+		return false
+	}
+
+	return true
+}
+
+func CharUniq2(s string) bool {
+
+	return true
+}

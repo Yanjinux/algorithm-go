@@ -59,3 +59,19 @@ func TestKmp(t *testing.T) {
 		}
 	}
 }
+
+func TestCharUniq(t *testing.T) {
+	exampleArray := []struct {
+		Val string
+		Res bool
+	}{
+		{"1234567", true}, {"111123454", false},
+	}
+
+	for i, _ := range exampleArray {
+		r := CharUniq(exampleArray[i].Val)
+		if r != exampleArray[i].Res {
+			t.Errorf("charunip val %s expect %v but %v.", exampleArray[i].Val, exampleArray[i].Res, r)
+		}
+	}
+}
