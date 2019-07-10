@@ -75,3 +75,19 @@ func TestCharUniq(t *testing.T) {
 		}
 	}
 }
+
+func TestRotateWord(t *testing.T) {
+	exampleArray := []struct {
+		Val string
+		Res string
+	}{
+		{"abcd", "dcba"}, {"ab", "ba"},
+	}
+	for i, _ := range exampleArray {
+		r := RotateWord(exampleArray[i].Val)
+		if r != exampleArray[i].Res {
+			t.Errorf("RotateWord val %s expect %v but %v.", exampleArray[i].Val, exampleArray[i].Res, r)
+		}
+	}
+
+}

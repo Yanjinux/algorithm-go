@@ -163,7 +163,18 @@ func CharUniq(s string) bool {
 	return true
 }
 
-func CharUniq2(s string) bool {
+/* 字符串逆序 */
 
-	return true
+func RotateWord(s string) string {
+	r := make([]byte, len(s))
+	start, last := 0, len(s)-1
+	for start < last {
+		r[start] = s[last]
+		r[last] = s[start]
+		start = start + 1
+		last = last - 1
+	}
+	return string(r)
 }
+
+
